@@ -18,6 +18,7 @@ public class WebController {
 
     @Autowired
     public WebController(CrawlingService crawlingService) {
+
         this.crawlingService = crawlingService;
     }
 

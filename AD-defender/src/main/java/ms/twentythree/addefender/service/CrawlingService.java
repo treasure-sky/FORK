@@ -19,7 +19,6 @@ public class CrawlingService {
             // HTML에서 body 내 텍스트 크롤링
             // 파싱 규칙 수정 필요
             String responseText = body.text();
-
             return Optional.of(responseText);
         } catch (IOException e) {
             e.printStackTrace();
