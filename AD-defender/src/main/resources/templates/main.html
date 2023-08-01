@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <div>
+        <h1>main</h1>
+        <form action="/" method="post">
+            <fieldset>
+                <legend>블로그 주소 입력</legend>
+                url : <input type="text" name="url"/>
+                <input type="submit" value="입력">
+            </fieldset>
+        </form>
+        <p th:text="${url}"></p>
+    </div>
+</div>
+</body>
+</html>
