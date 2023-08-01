@@ -1,6 +1,6 @@
 package ms.twentythree.addefender.dto;
 import lombok.*;
-import ms.twentythree.addefender.entity.DataEntity;
+//import ms.twentythree.addefender.entity.DataEntity;
 
 @Data
 @Getter
@@ -14,13 +14,13 @@ public class DatabaseDto {
     private boolean includesAd;
     private String summary;
 
-    public static DatabaseDto toDatabaseDto(DataEntity dataEntity) {
-        DatabaseDto dataDTO = new DatabaseDto();
-
-        dataDTO.setId(dataEntity.getId());
-        dataDTO.setUrl(dataEntity.getUrl());
-        dataDTO.setIncludesAd(dataEntity.isIncludesAd());
-        dataDTO.setSummary(dataEntity.getSummary());
-        return dataDTO;
-    }
+//    public static DatabaseDto toDatabaseDto(DataEntity dataEntity) {
+//        DatabaseDto dataDTO = new DatabaseDto();
+//
+//        dataDTO.setId(dataEntity.getId());
+//        dataDTO.setUrl(dataEntity.getUrl());
+//        dataDTO.setIncludesAd(dataEntity.isIncludesAd());
+//        dataDTO.setSummary(dataEntity.getSummary());
+//        return dataDTO;
+//    }
 }
