@@ -40,7 +40,7 @@ public class WebController {
             return "redirect:/";
         } else {
             // 크롤링 실패 처리 추가 필요
-            return "main";
+            return "redirect:/";
         }
     }
 }
