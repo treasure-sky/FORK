@@ -6,6 +6,7 @@ import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Optional;
 
 @Service
@@ -13,7 +14,7 @@ public class CrawlingService {
 
     public Optional<String> extractContent(String url) {
 
-        String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36";
+//        String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36";
 
         try {
             String responseText;
@@ -26,10 +27,11 @@ public class CrawlingService {
                 responseText = doc.select("#viewTypeSelector > div > div.se-main-container, #viewTypeSelector > div > div > div.se-main-container").text();
             }
             else {
-                Document doc = Jsoup.connect(url)
-                        .userAgent(userAgent) //User-Agent 우회
-                        .header("X-Requested-With", "XMLHttpRequest") // X-Requested-With 헤더 설정
-                        .get();
+//                Document doc = Jsoup.connect(url)
+//                        .userAgent(userAgent) //User-Agent 우회
+//                        .header("X-Requested-With", "XMLHttpRequest") // X-Requested-With 헤더 설정
+//                        .get();
+                Document doc = Jsoup.parse(new URL(url).openStream(), "UTF-8", url);
                 responseText = doc.body().text();
             }
             return Optional.of(responseText);
