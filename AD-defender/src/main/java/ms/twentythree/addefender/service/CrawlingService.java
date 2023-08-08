@@ -1,5 +1,6 @@
 package ms.twentythree.addefender.service;
 
+import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,9 @@ import java.util.Optional;
 public class CrawlingService {
 
     public Optional<String> extractContent(String url) {
+
+        String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36";
+
         try {
             String responseText;
             String domain = url.substring(8);
@@ -19,18 +23,29 @@ public class CrawlingService {
             if (domain.startsWith("m.blog.naver.com") || domain.startsWith("blog.naver.com")) {
                 String baseUrl = domain.startsWith("m.blog.naver.com") ? url : "https://m." + domain;
                 Document doc = Jsoup.connect(baseUrl).get();
-                responseText = doc.select("#viewTypeSelector > div > div.se-main-container").text();
+                responseText = doc.select("#viewTypeSelector > div > div.se-main-container, #viewTypeSelector > div > div > div.se-main-container").text();
             }
-
-            // 타 블로그는 body의 전체 텍스트를 가져옴
-            // 추후에 파싱 규칙 추가 요망
-            else{
-                Document doc = Jsoup.connect(url).get();
+            else {
+                Document doc = Jsoup.connect(url)
+                        .userAgent(userAgent) //User-Agent 우회
+                        .header("X-Requested-With", "XMLHttpRequest") // X-Requested-With 헤더 설정
+                        .get();
                 responseText = doc.body().text();
             }
             return Optional.of(responseText);
+        } catch (HttpStatusException e) {
+            int statusCode = e.getStatusCode();
+            if (statusCode == 404) {
+                System.err.println("Page not found: "+statusCode);
+                return Optional.empty();
+            } else {
+                // 다른 상태 코드 처리
+                System.err.println("Unhandled status code: " + statusCode);
+                return Optional.empty();
+            }
         } catch (IOException e) {
-            e.printStackTrace();
+            // 다른 I/O 예외 처리
+            System.err.println("I/O error: " + e.getMessage());
             return Optional.empty();
         }
     }

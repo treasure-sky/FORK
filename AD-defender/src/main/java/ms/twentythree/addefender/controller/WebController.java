@@ -39,7 +39,6 @@ public class WebController {
             // html에 출력 하는 기능 추가 필요
             return "redirect:/";
         } else {
-            // 크롤링 실패 처리 추가 필요
             return "redirect:/";
         }
     }
