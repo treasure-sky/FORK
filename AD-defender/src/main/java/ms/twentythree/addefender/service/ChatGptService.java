@@ -61,4 +61,5 @@ public class ChatGptService {
 
         return this.getResponse(this.buildHttpEntity(chatRequest));
     }
+
 }

@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import ms.twentythree.addefender.domain.Choice;
+import ms.twentythree.addefender.domain.Message;
 import ms.twentythree.addefender.domain.Usage;
 
 import java.io.Serializable;
@@ -21,7 +22,6 @@ public class ChatResponse implements Serializable {
     private String object;
     private LocalDate created;
     private String model;
-    private Usage usage;
     private List<Choice> choices;
 
     @Builder
@@ -33,6 +33,19 @@ public class ChatResponse implements Serializable {
         this.created = created;
         this.model = model;
         this.choices = choices;
+    }
+
+    public String getUserMessageContent() {
+        if (choices != null && !choices.isEmpty()) {
+            Choice choice = choices.get(0);
+            if (choice != null) {
+                Message message = choice.getMessage();
+                if (message != null && "user".equals(message.getRole())) {
+                    return message.getContent();
+                }
+            }
+        }
+        return null;
     }
 }
 

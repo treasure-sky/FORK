@@ -29,15 +29,20 @@ public class ChatGptController {
     @PostMapping("/question")
     public ResponseEntity<ChatResponse> sendQuestion(@RequestBody QuestionRequestDto requestDto) {
 
-        String response = String.valueOf(chatGptService.askQuestion(requestDto));
+        ChatResponse chatResponse = chatGptService.askQuestion(requestDto);
 
-        Message message = Message.builder()
-                .role("user")
-                .content(response)
+        Choice choice = chatResponse.getChoices().get(0);
+        Message assistantMessage = choice.getMessage();
+        String content = assistantMessage.getContent();
+        String role = assistantMessage.getRole();
+
+        Message newMessage = Message.builder()
+                .role(role)
+                .content(content)
                 .build();
 
-        Choice choice = Choice.builder()
-                .message(message)
+        Choice newChoice = Choice.builder()
+                .message(newMessage)
                 .index(0)
                 .finishReason("complete")
                 .build();
@@ -48,7 +53,7 @@ public class ChatGptController {
                 .object("chat_response")
                 .created(LocalDate.now())
                 .model("gpt-3.5-turbo")
-                .choices(List.of(choice))
+                .choices(List.of(newChoice))
                 .build();
 
         return ResponseEntity.ok(responseDto);
