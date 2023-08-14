@@ -1,6 +1,9 @@
 package ms.twentythree.addefender.dto;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import ms.twentythree.addefender.domain.Choice;
 import ms.twentythree.addefender.domain.Usage;
 
@@ -10,6 +13,8 @@ import java.util.List;
 
 
 @Data
+@Getter
+@NoArgsConstructor
 public class ChatResponse implements Serializable {
 
     private String id;
@@ -19,4 +24,15 @@ public class ChatResponse implements Serializable {
     private Usage usage;
     private List<Choice> choices;
 
+    @Builder
+    public ChatResponse(String id, String object,
+                              LocalDate created, String model,
+                              List<Choice> choices) {
+        this.id = id;
+        this.object = object;
+        this.created = created;
+        this.model = model;
+        this.choices = choices;
+    }
 }
+
