@@ -25,7 +25,6 @@ public class ChatGptController {
     private final ChatGptService chatGptService;
 
 
-    //chat-gpt 와 간단한 채팅
     @PostMapping("/question")
     public ResponseEntity<ChatResponse> sendQuestion(@RequestBody QuestionRequestDto requestDto) {
 

@@ -1,14 +1,19 @@
 package ms.twentythree.addefender.controller;
 
+import ms.twentythree.addefender.dto.ChatResponse;
+import ms.twentythree.addefender.dto.QuestionRequestDto;
 import ms.twentythree.addefender.service.CrawlingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Optional;
-
 
 
 @Controller
@@ -29,17 +34,40 @@ public class WebController {
     }
 
 
-
-    @PostMapping("/")
-    public String result(@RequestParam("url") String url) {
+    @PostMapping("/result")
+    public String result(@RequestParam("url") String url, Model model) {
         Optional<String> extractedContent = crawlingService.extractContent(url);
 
         if (extractedContent.isPresent()) {
-            System.out.println(extractedContent.toString());
-            // html에 출력 하는 기능 추가 필요
-            return "redirect:/";
+            String content = extractedContent.get();
+
+            // content를 가지고 ChatGptController로 POST 요청 보내기
+            QuestionRequestDto requestDto = new QuestionRequestDto();
+            requestDto.setQuestion(content + "다음 글이 광고성 글이면 '예'를 반환하고, 광고성 글이 아니면 '아니요'만 반환해. 그 외 말은 하지마");
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+
+            HttpEntity<QuestionRequestDto> requestEntity = new HttpEntity<>(requestDto, headers);
+            RestTemplate restTemplate = new RestTemplate();
+
+            ResponseEntity<ChatResponse> response = restTemplate.postForEntity("http://localhost:8080/chat-gpt/question", requestEntity, ChatResponse.class);
+
+            //결과값
+            ChatResponse chatResponse = response.getBody();
+
+            model.addAttribute("chatResponse", chatResponse);
+
+            System.out.println(chatResponse);
+
+            return "/result";
         } else {
             return "redirect:/";
         }
+    }
+
+    @GetMapping("/result")
+    public String Result(@ModelAttribute("chatResponse") ChatResponse chatResponse) {
+        return "result";
     }
 }
