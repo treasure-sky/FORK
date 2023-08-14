@@ -23,8 +23,11 @@ public class ChatGptService {
     @Value("${apikey}")
     private String API_KEY;
 
+    //HTTP 응답을 위한 RestTemplate 선언
     private static RestTemplate restTemplate = new RestTemplate();
 
+
+    //Headers Content-Tpye등을 설정하여 외부 API 호출
     public HttpEntity<ChatRequest> buildHttpEntity(ChatRequest requestDto) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.parseMediaType(ChatGptConfig.MEDIA_TYPE));
@@ -32,6 +35,8 @@ public class ChatGptService {
         return new HttpEntity<>(requestDto, headers);
     }
 
+
+    //Chat gpt api에 요청 보내고 응답 반환
     public ChatResponse getResponse(HttpEntity<ChatRequest> chatGptRequestDtoHttpEntity) {
         ResponseEntity<ChatResponse> responseEntity = restTemplate.postForEntity(
                 ChatGptConfig.URL,
@@ -41,16 +46,19 @@ public class ChatGptService {
         return responseEntity.getBody();
     }
 
+    // 질문을 담은 메시지를 구성하고 ChatGPT API에 전송하여 응답 받기
     public ChatResponse askQuestion(QuestionRequestDto requestDto) {
-        List<Message> messages = new ArrayList<>();  // Create a list for messages
+        List<Message> messages = new ArrayList<>();
 
-        Message questionMessage = Message.builder()  // Create a message for the question
-                .role(ChatGptConfig.ROLE)  // Or any appropriate role value
-                .content(requestDto.getQuestion())  // Use the question as content
+        // 질문을 담은 메시지 생성
+        Message questionMessage = Message.builder()
+                .role(ChatGptConfig.ROLE)
+                .content(requestDto.getQuestion())
                 .build();
 
         messages.add(questionMessage);
 
+        // 질문 메시지와 추가 설정을 포함한 채팅 요청 구성
         ChatRequest chatRequest = ChatRequest.builder()
                 .model(ChatGptConfig.MODEL)
                 .messages(messages)
@@ -59,6 +67,7 @@ public class ChatGptService {
                 .topP(ChatGptConfig.TOP_P)
                 .build();
 
+        // ChatGPT API에 요청을 보내고 응답을 반환
         return this.getResponse(this.buildHttpEntity(chatRequest));
     }
 

@@ -26,26 +26,13 @@ public class ChatResponse implements Serializable {
 
     @Builder
     public ChatResponse(String id, String object,
-                              LocalDate created, String model,
-                              List<Choice> choices) {
+                        LocalDate created, String model,
+                        List<Choice> choices) {
         this.id = id;
         this.object = object;
         this.created = created;
         this.model = model;
         this.choices = choices;
-    }
-
-    public String getUserMessageContent() {
-        if (choices != null && !choices.isEmpty()) {
-            Choice choice = choices.get(0);
-            if (choice != null) {
-                Message message = choice.getMessage();
-                if (message != null && "user".equals(message.getRole())) {
-                    return message.getContent();
-                }
-            }
-        }
-        return null;
     }
 }
 

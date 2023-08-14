@@ -13,10 +13,18 @@ import java.util.List;
 public class ChatRequest implements Serializable {
 
     private String model;
+
+    //대화 메시지 리스트
     private List<Message> messages;
+
+    // 최대 생성 토큰 수
     @JsonProperty("max_tokens")
     private Integer maxTokens;
+
+    // 생성 과정의 다양성을 조절하는 온도 값
     private Double temperature;
+
+    //다양성 조절을 위한 top-p 확률 값
     @JsonProperty("top_p")
     private Double topP;
 
