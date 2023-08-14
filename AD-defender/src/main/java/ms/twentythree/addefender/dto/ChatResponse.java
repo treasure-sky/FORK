@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import ms.twentythree.addefender.domain.Choice;
 import ms.twentythree.addefender.domain.Message;
-import ms.twentythree.addefender.domain.Usage;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -22,6 +21,7 @@ public class ChatResponse implements Serializable {
     private String object;
     private LocalDate created;
     private String model;
+
     private List<Choice> choices;
 
     @Builder

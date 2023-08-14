@@ -36,6 +36,7 @@ public class ChatGptController {
         String content = assistantMessage.getContent();
         String role = assistantMessage.getRole();
 
+
         Message newMessage = Message.builder()
                 .role(role)
                 .content(content)
