@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>result</title>
 </head>
 <body>
 <div>
-    <ul>
-        <li th:text="${chatResponse}">
-        </li>
-    </ul>
+    <h1>광고성이면 "예" 아니면 "아니요" 반환</h1>
+    <p th:text="${chatResponse.choices[0].message.content}"></p>
 </div>
 </body>
 </html>
