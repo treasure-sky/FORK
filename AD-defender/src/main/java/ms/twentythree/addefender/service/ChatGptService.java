@@ -27,7 +27,7 @@ public class ChatGptService {
     private static RestTemplate restTemplate = new RestTemplate();
 
 
-    //Headers Content-Tpye등을 설정하여 외부 API 호출
+    //Headers Content-Type 등을 설정하여 외부 API 호출
     public HttpEntity<ChatRequest> buildHttpEntity(ChatRequest requestDto) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.parseMediaType(ChatGptConfig.MEDIA_TYPE));
