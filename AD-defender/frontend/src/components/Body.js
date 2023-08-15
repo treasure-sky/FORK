@@ -1,4 +1,4 @@
-import './Body.scss';
+import '../styles/Body.scss';
 
 const Main = ({children}) =>{
     return(

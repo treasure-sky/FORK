@@ -1,8 +1,8 @@
-@import "../components/mixin.scss";
-.MainPage{
+@import "../styles/mixin.scss";
+.Result{
     min-width: 430px;
     height: 1200px;
-    background-image: url('../assets/back-img.jpg');
+    background-color: rgb(0, 0, 0);
 
     @include tablet{
         min-width: 834px;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './ResultBody.scss';
+import '../styles/ResultBody.scss';
 import HeartButton from './HeartButton';
 // import LinkResult from './LinkResult';
 import axios from 'axios';

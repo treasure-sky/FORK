@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ResultBody from '../components/ResultBody';
-import './ResultPage.scss'
+import "../styles/ResultPage.scss";
 
 const Result = (props) => {
     return (

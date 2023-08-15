@@ -1,4 +1,4 @@
-import './Footer.scss';
+import '../styles/Footer.scss';
 import {React} from 'react';
 import {FaInstagram} from 'react-icons/fa';
 
@@ -18,7 +18,7 @@ function Footer(props){
                         <div className='footer-col'>
                             <h4>About us</h4>
                             <ul>
-                                <li><a>like a lion KNU</a></li>
+                                <li><a>likeLion KNU</a></li>
                                 <li><a>Team 'TwentyThree'</a></li>
                             </ul>
                         </div>

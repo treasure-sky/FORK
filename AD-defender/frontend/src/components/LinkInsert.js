@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {Link} from 'react-router-dom';
 import {BiSearchAlt} from 'react-icons/bi';
-import './LinkInsert.scss';
+import '../styles/LinkInsert.scss';
 
 const LinkInsert = () => {
     const [link, setLink] = useState('');
@@ -17,18 +17,6 @@ const LinkInsert = () => {
             onClick();
         }
     }
-
-    // const onChange = useCallback(e =>{
-    //     setValue(e.target.value);
-    // }, []);
-
-    // const onSubmit = useCallback(
-    //     e => {
-    //         onInsert(value);
-    //         setValue('');
-    //         e.preventDefault();
-    //     }
-    // )
 
     return(
         <div className='insertWrap'>
