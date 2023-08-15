@@ -1,0 +1,20 @@
+@import "../components/mixin.scss";
+.MainPage{
+    min-width: 430px;
+    height: 1200px;
+    background-image: url('../assets/back-img.jpg');
+
+    @include tablet{
+        min-width: 834px;
+        height: 1200px;
+    }
+    @include laptop{
+        min-width: 1280px;
+        height: 1024px;
+    }
+    @include desktop(){
+        min-width: 1900px;
+        height: 1080px;
+    }
+
+}

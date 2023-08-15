@@ -1,0 +1,67 @@
+@import "../components/mixin.scss";
+
+.body{
+    font-family: 'Pretendard';
+    .app-introd{
+        padding-left: 25px;
+        padding-top: 60px;
+        h3{
+            color: white;
+            font-size: 16px;
+            font-weight: 100;
+        }
+    }
+    .app-title{
+        padding-left: 25px;
+        padding-top: 10px;
+        h1{
+            color: white;
+            font-size: 50px;
+            font-weight: 400;
+            a{
+                font-weight: 900;
+            }
+        }
+    }
+    @include tablet{
+        .app-introd{
+            padding-left: 30px;
+            h3{
+                font-size: 16px;
+            }
+        }
+        .app-title{
+            h1{
+                font-size: 50px;
+            }
+        }
+    }
+    @include laptop{
+        .app-introd{
+            padding-left: 95px;
+            h3{
+                font-size: 16px;
+            }
+        }
+        .app-title{
+            padding-left: 95px;
+            h1{
+                font-size: 55px;
+            }
+        }
+    }
+    @include desktop{
+        .app-introd{
+            padding-left: 120px;
+            h3{
+                font-size: 18px;
+            }
+        }
+        .app-title{
+            padding-left: 120px;
+            h1{
+                font-size: 55px;
+            }
+        }
+    }
+}

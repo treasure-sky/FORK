@@ -1,0 +1,24 @@
+$tablet: 768px;
+$laptop: 1020px;
+$desktop: 1400px;
+
+//Mixins
+@mixin tablet{
+    @media (min-width: #{$tablet}) {
+        @content;
+    }
+}
+@mixin laptop{
+    @media (min-width: #{$laptop}) {
+        @content;
+    }
+}
+@mixin desktop{
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+}

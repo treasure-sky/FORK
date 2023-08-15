@@ -1,0 +1,134 @@
+@import "../components/mixin.scss";
+
+.wrap{
+    bottom: 0;
+    .container{
+        font-family: 'Pretendard';
+        // max-width: 430px;
+        margin: auto;
+    }
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    ul{
+        list-style: none;
+    }
+    .footer{
+        transform: translate(0, 13rem);
+        background-color: rgba(0, 0, 0, 0.897);
+        padding: 30px 0;
+    }
+    .footer-col{
+        width: 100%;
+        padding: 0 10px;
+    }
+    .footer-col h4{
+        font-size: 13px;
+        color: rgb(204, 204, 204);
+        text-transform: capitalize;
+        margin-bottom: 20px;
+        font-weight: 200;
+        position: relative;
+    }
+    .footer-col h4::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        background-color: #ffbc7d;
+        height: 2px;
+        box-sizing: border-box;
+        width: 30px;
+    }
+    .footer-col ul li::not(:last-child){
+        margin-bottom: 10px;
+    }
+    .footer-col ul li a{
+        font-size: 11px;
+        text-transform: capitalize;
+        color: rgb(172, 172, 172);
+        text-decoration: none;
+        font-weight: 100;
+        display: block;
+        transition: all 0.3s ease;
+    }
+    .footer-col ul li a:hover{
+        color: #ffbc7d;
+        padding-left: 3px;
+    }
+    .footer-col .social-links a{
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        background-color: rgb(82, 82, 82);
+        margin: 0 10px 10px 0;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 50%;
+        color:#ffffff;
+        transition: all 0.5s ease;
+    }
+    .footer-col .social-links a:hover{
+        color: #ff7b00;
+        background-color: #ffffff;
+    }
+    
+    @include tablet{
+        .container{
+            min-width: 834px;
+        }
+        .footer{
+            transform: translate(0, 28.3rem);
+        }
+        .footer-col{
+            width: 20%;
+            transform: translate(15%, 0);
+        }
+        .footer-col h4{
+            font-size: 14px;
+        }
+        .footer-col ul li a{
+            font-size: 12px;
+        }
+        .footer-col .social-links a{
+            height: 30px;
+            width: 30px;
+        }
+    }
+    
+    @include laptop{
+        .container{
+            min-width: 1280px;
+        }
+        .footer{
+            transform: translate(0, 16rem);
+        }
+        .footer-col{
+            width: 20%;
+            transform: translate(35%, 0);
+        }
+        .footer-col h4{
+            font-size: 16px;
+        }
+        .footer-col ul li a{
+            font-size: 14px;
+        }
+    }
+    @include desktop{
+        .container{
+            min-width: 1920px;
+            margin: auto;
+        }
+        .footer{
+            transform: translate(0, 19rem);
+        }
+        .footer-col{
+            width: 20%;
+            transform: translate(30%, 0);
+            // padding: 0 15px;
+
+        }
+    }
+}
+

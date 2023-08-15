@@ -1,0 +1,56 @@
+@import "../components/mixin.scss";
+@font-face {
+    font-family: 'CWDangamAsac-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/CWDangamAsac-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.header{
+    font-family: 'Pretendard';
+    padding: 1rem;
+    height: 10%;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo-img{
+        width: 100px;
+        height: 35px;
+    }
+    nav{
+        padding: 10px;
+        ul{
+        list-style: none;
+            li{
+            display: inline-block;
+            padding-left: 15px;
+                a{
+                    color: white;
+                }
+            }
+        }
+    }
+    @include tablet{
+        .logo-img{
+            margin-left: 10px;
+        }
+    }
+    @include laptop{
+        .logo-img{
+            margin-left: 80px;
+        }
+        nav{
+            margin-right: 80px;
+        }
+    }
+    @include desktop{
+        .logo-img{
+            margin-left: 100px;
+        }
+        nav{
+            margin-right: 100px;
+        }
+    }
+}
