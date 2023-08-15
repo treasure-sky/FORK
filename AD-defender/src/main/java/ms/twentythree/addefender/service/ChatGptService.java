@@ -60,7 +60,7 @@ public class ChatGptService {
 
         // 질문 메시지와 추가 설정을 포함한 채팅 요청 구성
         ChatRequest chatRequest = ChatRequest.builder()
-                .model(ChatGptConfig.MODEL)
+                .model(selectModelByRequestDto(requestDto))
                 .messages(messages)
                 .maxTokens(ChatGptConfig.MAX_TOKEN)
                 .temperature(ChatGptConfig.TEMPERATURE)
@@ -69,6 +69,17 @@ public class ChatGptService {
 
         // ChatGPT API에 요청을 보내고 응답을 반환
         return this.getResponse(this.buildHttpEntity(chatRequest));
+    }
+
+    // 크롤링한 글자수에 따른 모델의 차등선정
+    private String selectModelByRequestDto(QuestionRequestDto requestDto) {
+        int dataLength = requestDto.getQuestion().length();
+
+        if (dataLength < 2000) {
+            return "gpt-3.5-turbo";
+        } else {
+            return "gpt-3.5-turbo-16k";
+        }
     }
 
 }

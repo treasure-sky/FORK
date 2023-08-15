@@ -59,7 +59,7 @@ public class ChatGptController {
                 .id("unique_id")
                 .object("chat_response")
                 .created(LocalDate.now())
-                .model("gpt-3.5-turbo")
+                .model(chatResponse.getModel())
                 .choices(List.of(newChoice))
                 .build();
 
