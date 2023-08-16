@@ -5,7 +5,7 @@ const Main = ({children}) =>{
         <div className='body'>
             <div className='app-introd'>
                 <h3>Free website for verifying advertisements</h3>
-                <h3>AD-DEFENDER, ForK</h3>
+                <h3>Find Out Real Knowledge</h3>
             </div>
             <div className='app-title'>
                 <h1><a>광고성 글</a>만</h1>
