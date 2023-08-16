@@ -1,5 +1,6 @@
 package ms.twentythree.addefender.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import ms.twentythree.addefender.dto.ChatResponse;
 import ms.twentythree.addefender.dto.QuestionRequestDto;
 import ms.twentythree.addefender.service.CrawlingService;
@@ -17,6 +18,7 @@ import java.util.Optional;
 
 
 @Controller
+@Slf4j
 public class WebController {
 
     private final CrawlingService crawlingService;
@@ -53,6 +55,7 @@ public class WebController {
 
             ResponseEntity<ChatResponse> response = restTemplate.postForEntity("http://localhost:8080/chat-gpt/question", requestEntity, ChatResponse.class);
 
+            log.info("response = {}", response);
             //결과값
             ChatResponse chatResponse = response.getBody();
 
