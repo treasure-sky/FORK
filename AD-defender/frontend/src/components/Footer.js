@@ -25,10 +25,10 @@ function Footer(props){
                         <div className='footer-col'>
                             <h4>Members</h4>
                             <ul>
-                                <li><a href='https://github.com/chamjoeun0111'>[Back-E] Taewoong</a></li>
-                                <li><a href='https://github.com/treasure-sky'>[Back-E] Jinho</a></li>
-                                <li><a href='https://github.com/ryudain05'>[Back-E] Dain</a></li>
-                                <li><a href='https://github.com/yeahzee0421'>[Front-E] Yeji</a></li>
+                                <li><a href='https://github.com/treasure-sky'>Jinho</a></li>
+                                <li><a href='https://github.com/chamjoeun0111'>Taewoong</a></li>
+                                <li><a href='https://github.com/ryudain05'>Dain</a></li>
+                                <li><a href='https://github.com/yeahzee0421'>Yeji</a></li>
                             </ul>
                         </div>
                         <div className='footer-col'>

@@ -4,6 +4,7 @@
     min-width: 430px;
     height: 1200px;
     background-image: url('../assets/back-img.jpg');
+    background-size: cover;
 
     @include tablet{
         min-width: 834px;
@@ -16,12 +17,6 @@
     @include desktop(){
         min-width: 1900px;
         height: 1080px;
-        // .header{height: 10%;}
-        // .body{height: 70%;
-        // background-color: antiquewhite;}
-        // .footer{
-        //     height: 20%;
-        // background-color: rgb(201, 201, 201);}
     }
 
 }
