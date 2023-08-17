@@ -11,10 +11,11 @@ function Header(props){
         <Link to="/"><img className='logo-img' alt='logo-img' src='image/app-logo-img-color.png'/></Link>
                 <nav>
                     <ul>
-                        <li><a>Our vision</a></li>
-                        <li><a>About us</a></li>
+                    <Link to="/bi"><li><a>About Fork</a></li></Link>
+                    <Link to="/aboutus"><li><a>About us</a></li></Link>
                     </ul>
                 </nav>
+                
     </div>
     )
 }

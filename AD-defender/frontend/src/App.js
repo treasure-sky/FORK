@@ -1,5 +1,5 @@
 // import React,{useReducer, useRef, useCallback} from 'react';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Route, Routes} from 'react-router-dom';
 import Main from '../src/pages/Main'
 import ResultPage from './pages/ResultPage'
@@ -8,7 +8,16 @@ import Bi from './pages/bi';
 import axios from 'axios';
 
 const App =()=> {
-  const [data, setData] = useState(null);
+  const [message, setMessage] = useState([]);
+  useEffect(() => {
+    fetch("...")
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      setMessage(data);
+    });
+  }, []);
   // const onClick = async()=>{
   //   try{
   //     const response = await axios.get(...);
