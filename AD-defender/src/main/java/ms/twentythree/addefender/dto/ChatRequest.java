@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 @Getter
 @NoArgsConstructor
-public class ChatRequest implements Serializable {
+public class    ChatRequest implements Serializable {
 
     private String model;
 

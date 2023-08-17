@@ -10,7 +10,7 @@ import lombok.*;
 public class DatabaseDto {
 
     private Long id;
-    private String url;
+    private String link;
     private boolean includesAd;
     private String summary;
 

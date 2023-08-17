@@ -1,8 +1,12 @@
 package ms.twentythree.addefender.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import ms.twentythree.addefender.domain.Choice;
+import ms.twentythree.addefender.domain.Message;
 import ms.twentythree.addefender.dto.ChatResponse;
+import ms.twentythree.addefender.dto.DatabaseDto;
 import ms.twentythree.addefender.dto.QuestionRequestDto;
+import ms.twentythree.addefender.repository.DatabaseRepository;
 import ms.twentythree.addefender.service.CrawlingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -17,7 +21,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Optional;
 
 
-@Controller
+@RestController
 @Slf4j
 public class WebController {
 
@@ -29,7 +33,6 @@ public class WebController {
         this.crawlingService = crawlingService;
     }
 
-
     @GetMapping("/")
     public String main() {
         return "main";
@@ -37,9 +40,9 @@ public class WebController {
 
 
     @PostMapping("/result")
-    public String result(@RequestParam("url") String url, Model model) {
+    public String result(@RequestBody DatabaseDto databaseDto, Model model) {
+        String url = databaseDto.getLink();
         Optional<String> extractedContent = crawlingService.extractContent(url);
-
         if (extractedContent.isPresent()) {
             String content = extractedContent.get();
 
@@ -61,8 +64,6 @@ public class WebController {
 
             model.addAttribute("chatResponse", chatResponse);
 
-            System.out.println(chatResponse);
-
             return "/result";
         } else {
             return "redirect:/";
@@ -71,6 +72,6 @@ public class WebController {
 
     @GetMapping("/result")
     public String Result(@ModelAttribute("chatResponse") ChatResponse chatResponse) {
-        return "result";
+        return "content";
     }
 }
