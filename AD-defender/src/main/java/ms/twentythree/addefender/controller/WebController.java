@@ -52,6 +52,7 @@ public class WebController {
             ResponseEntity<ChatResponse> response = restTemplate.postForEntity("http://localhost:8080/chat-gpt/question", requestEntity, ChatResponse.class);
 
             log.info("response = {}", response);
+
             //결과값
             ChatResponse chatResponse = response.getBody();
 

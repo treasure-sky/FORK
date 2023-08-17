@@ -9,23 +9,16 @@ import axios from 'axios';
 
 const App =()=> {
   const [message, setMessage] = useState([]);
-  useEffect(() => {
-    fetch("...")
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      setMessage(data);
-    });
-  }, []);
-  // const onClick = async()=>{
-  //   try{
-  //     const response = await axios.get(...);
-  //     setData(response.data);
-  //   } catch(e){
-  //     console.log(e);
-  //   }
-  // };
+  // useEffect(() => {
+  //   fetch("...")
+  //   .then((response) => {
+  //     return response.json();
+  //   })
+  //   .then((data) => {
+  //     setMessage(data);
+  //   });
+  // }, []);
+
   return (
     <div className='App'>
       <Routes>
