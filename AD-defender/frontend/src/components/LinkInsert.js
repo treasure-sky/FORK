@@ -23,12 +23,12 @@ const LinkInsert = () => {
                 link,
             });
             console.log(response.data);
-            navigate("/result",  { state: { chatResponse: response.data } });
+            navigate("/result",  { state: { chatResponse: response.data }});
         } catch(error) {
             console.error("저장실패", error);
         }
     };
-
+    console.log(link);
     return (
         <div className='insertWrap'>
             <form className='LinkInsert' onSubmit={handleSubmit}>

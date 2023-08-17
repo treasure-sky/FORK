@@ -55,8 +55,7 @@ public class WebController {
 
             //결과값
             ChatResponse chatResponse = response.getBody();
-
-
+            chatResponse.setUrl(url);
             return ResponseEntity.ok(chatResponse);
         } else {
             return ResponseEntity.notFound().build();
