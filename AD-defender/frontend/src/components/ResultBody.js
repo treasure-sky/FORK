@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import '../styles/ResultBody.scss';
+import { useLocation } from 'react-router-dom';
 import HeartButton from './HeartButton';
 // import LinkResult from './LinkResult';
 import axios from 'axios';
 
 const BodyRes = (props) =>{
+    const location = useLocation(); // 현재 라우팅 정보 가져오기
+    const chatResponse = location.state ? location.state.chatResponse : '';
     const [isCommercial, setCommercial] = useState('');
     const [like, setLike] = useState('');
     //useEffect 안에서 axios를 통해 사용자가 좋아요 눌렀는지, 여부 판단
@@ -25,7 +28,7 @@ const BodyRes = (props) =>{
     return(
         <div className='body'>
             <div className='link-section'>
-                <h2>https://</h2>
+                <h2>https:// Chat Response: {JSON.stringify(chatResponse.choices[0].message.content)}</h2>
             </div>
             {/* <LinkResult/> */}
             {/* <HeartButton like={like} onClick={toggleLike}/> */}

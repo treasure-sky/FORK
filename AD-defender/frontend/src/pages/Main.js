@@ -10,7 +10,6 @@ const Main = (props) => {
             <div className='body'><BodyCopy/></div>
             <div className='footer'><Footer/></div>
             {/* <LinkInsert/> */}
-            
         </div>
     )
 }

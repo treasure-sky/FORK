@@ -23,7 +23,7 @@ const LinkInsert = () => {
                 link,
             });
             console.log(response.data);
-            navigate("/result");
+            navigate("/result",  { state: { chatResponse: response.data } });
         } catch(error) {
             console.error("저장실패", error);
         }
