@@ -1,19 +1,12 @@
 package ms.twentythree.addefender.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import ms.twentythree.addefender.domain.Choice;
-import ms.twentythree.addefender.domain.Message;
 import ms.twentythree.addefender.dto.ChatResponse;
 import ms.twentythree.addefender.dto.DatabaseDto;
 import ms.twentythree.addefender.dto.QuestionRequestDto;
-import ms.twentythree.addefender.repository.DatabaseRepository;
 import ms.twentythree.addefender.service.CrawlingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -40,7 +33,7 @@ public class WebController {
 
 
     @PostMapping("/result")
-    public String result(@RequestBody DatabaseDto databaseDto, Model model) {
+    public ResponseEntity<ChatResponse> result(@RequestBody DatabaseDto databaseDto, Model model) {
         String url = databaseDto.getLink();
         Optional<String> extractedContent = crawlingService.extractContent(url);
         if (extractedContent.isPresent()) {
@@ -62,16 +55,11 @@ public class WebController {
             //결과값
             ChatResponse chatResponse = response.getBody();
 
-            model.addAttribute("chatResponse", chatResponse);
 
-            return "/result";
+            return ResponseEntity.ok(chatResponse);
         } else {
-            return "redirect:/";
+            return ResponseEntity.notFound().build();
         }
     }
 
-    @GetMapping("/result")
-    public String Result(@ModelAttribute("chatResponse") ChatResponse chatResponse) {
-        return "content";
-    }
 }
