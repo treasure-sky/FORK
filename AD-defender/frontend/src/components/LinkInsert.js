@@ -1,40 +1,51 @@
 import { useState } from 'react';
-import {Link} from 'react-router-dom';
-import {BiSearchAlt} from 'react-icons/bi';
 import '../styles/LinkInsert.scss';
+import axios from "axios";
+import {BiSearchAlt} from "react-icons/bi";
+import { useNavigate } from 'react-router-dom';
 
 const LinkInsert = () => {
     const [link, setLink] = useState('');
+    const navigate = useNavigate();
     const onChange = e => setLink(e.target.value);
 
-    const onClick = () => {
-        // alert(link+':');
-        setLink("");
-    }
-
-    const onKeyDown = e =>{
-        if(e.key === 'Enter'){
-            onClick();
+    const onKeyDown = e => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            handleSubmit(e);
         }
-    }
+    };
 
-    return(
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post("/result", {
+                link,
+            });
+            console.log(response.data);
+            navigate("/result");
+        } catch(error) {
+            console.error("저장실패", error);
+        }
+    };
+
+    return (
         <div className='insertWrap'>
-            <form className='LinkInsert'>
+            <form className='LinkInsert' onSubmit={handleSubmit}>
                 <input
-                type='text'
-                name='link'
-                placeholder='링크를 입력하세요.'
-                value={link}
-                onChange={onChange}
-                onKeyDown={onKeyDown}/>
-                <Link to="/result">
-                    <button onClick={onClick} type='submit'>
+                    type='text'
+                    name='link'
+                    placeholder='링크를 입력하세요.'
+                    value={link}
+                    onChange={onChange}
+                    onKeyDown={onKeyDown}
+                />
+                <button type='submit'>
                     <BiSearchAlt/>
-                </button></Link>
+                </button>
             </form>
         </div>
-    )
-}
+    );
+};
 
 export default LinkInsert;
