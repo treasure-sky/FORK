@@ -29,9 +29,13 @@ const BodyRes = (props) =>{
     const [result, setResult] = useState(true); //true면 광고
     const resultText = chatResponse.choices[0].message.content;
     const inputUrl = chatResponse.url;
-    if(resultText=="아니오") {
-        setResult(false);
-    }
+    useEffect(() => {
+        if(resultText=="아니요") {
+            setResult(false);
+        }
+    }, []);
+
+
     console.dir(chatResponse);
     return(
         <div className='body'>
