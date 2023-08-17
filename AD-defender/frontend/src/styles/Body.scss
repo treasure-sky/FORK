@@ -1,66 +1,97 @@
 @import "../styles/mixin.scss";
 
 .body{
+    width: 100%;
+    padding-top: 2rem;
     font-family: 'Pretendard';
-    .app-introd{
-        padding-left: 25px;
-        padding-top: 60px;
-        h3{
-            color: white;
-            font-size: 16px;
-            font-weight: 100;
-        }
+    margin-left: 25px;
+    .app-title h1{
+        font-family: 'Montserrat', sans-serif;
+        margin: -20px 0 0 -20px;
+        color: white;
+        font-size: 50px;
+        font-weight: 700;  
+        word-spacing: -7px;
     }
-    .app-title{
-        padding-left: 25px;
-        padding-top: 10px;
-        h1{
-            color: white;
-            font-size: 50px;
-            font-weight: 400;
-            a{
-                font-weight: 900;
-            }
+    .app-introd{
+        height: 15%;
+        margin-top: 20px;
+        margin-left: -20px;
+        margin-bottom: 70px;
+        h3{
+            color: rgb(255, 255, 255);
+            font-size: 13px;
+            font-weight: 200;
         }
     }
     @include tablet{
-        .app-introd{
-            padding-left: 30px;
-            h3{
-                font-size: 16px;
-            }
+        .app-title h1{
+            font-family: 'Montserrat', sans-serif;
+            margin: -20px 0 0 -20px;
+            color: white;
+            font-size: 90px;
+            font-weight: 700; 
+            letter-spacing: -4px; 
+            word-spacing: -10px;
         }
-        .app-title{
-            h1{
-                font-size: 50px;
+        .app-introd{
+            height: 15%;
+            margin-top: 20px;
+            margin-left: -20px;
+            margin-bottom: 50px;
+            h3{
+                color: rgb(255, 255, 255);
+                font-size: 15px;
+                font-weight: 100;
             }
         }
     }
     @include laptop{
-        .app-introd{
-            padding-left: 95px;
-            h3{
-                font-size: 16px;
-            }
+        margin-left: 30px;
+        .app-title h1{
+            font-family: 'Montserrat', sans-serif;
+            margin: -20px 0 0 -20px;
+            color: white;
+            font-size: 100px;
+            font-weight: 700; 
+            letter-spacing: -4px; 
+            word-spacing: -14px;
         }
-        .app-title{
-            padding-left: 95px;
-            h1{
-                font-size: 55px;
+        .app-introd{
+            height: 15%;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            h3{
+                color: rgb(255, 255, 255);
+                font-size: 16px;
+                font-weight: 300;
             }
         }
     }
     @include desktop{
-        .app-introd{
-            padding-left: 120px;
-            h3{
-                font-size: 18px;
-            }
-        }
+        margin-left: 50px;
         .app-title{
-            padding-left: 120px;
-            h1{
-                font-size: 55px;
+            height: 40%;
+        }
+        .app-title h1{
+            font-family: 'Montserrat', sans-serif;
+            margin: -25px 0 0 -25px;
+            color: white;
+            font-size: 110px;
+            font-weight: 900; 
+            letter-spacing: -4px;   
+            word-spacing: -15px;
+        }
+        .app-introd{
+            
+            height: 15%;
+            // margin-top: 20px;
+            // margin-left: -20px;
+            margin-bottom: 50px;
+            h3{
+                color: rgb(255, 255, 255);
+                font-size: 18px;
+                font-weight: 100;
             }
         }
     }

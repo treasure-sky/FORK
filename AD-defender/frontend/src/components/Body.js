@@ -1,16 +1,20 @@
 import '../styles/Body.scss';
+import LinkInsert from './LinkInsert';
 
 const Main = ({children}) =>{
     return(
         <div className='body'>
-            <div className='app-introd'>
-                <h3>Free website for verifying advertisements</h3>
-                <h3>AD-DEFENDER, ForK</h3>
-            </div>
             <div className='app-title'>
-                <h1><a>광고성 글</a>만</h1>
-                <h1>빠르게 골라내다</h1></div>
-            <div className='content'>{children}</div>
+                <h1>FIND OUT REAL</h1>
+                <h1>KNOWLEDGE</h1>
+            </div>
+            <div className='app-introd'>
+                <h3>Free website for verifying advertisements, Find Out Real Knowledge</h3>
+                <h3>광고성 글 판별을 위한 무료 웹사이트. 궁금한 포스트를 자유롭게 검색해보세요.</h3>
+            </div>
+            <div className='content'>
+            <LinkInsert/>
+            </div>
 
     </div>
     )

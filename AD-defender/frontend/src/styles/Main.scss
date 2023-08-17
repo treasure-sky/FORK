@@ -4,6 +4,7 @@
     min-width: 430px;
     height: 1200px;
     background-image: url('../assets/back-img.jpg');
+    background-size: cover;
 
     @include tablet{
         min-width: 834px;

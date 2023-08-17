@@ -7,8 +7,9 @@ const Result = (props) => {
     return (
         <div className='Result'>
             <Header/>
-            <ResultBody/>
-            <Footer/>
+            <div className='body'><ResultBody/></div>
+            <div className='footer'><Footer/></div>
+            {/* <LinkInsert/> */}
         </div>
     )
 }
