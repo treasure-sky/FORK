@@ -21,11 +21,12 @@ public class ChatResponse implements Serializable {
     private String object;
     private LocalDate created;
     private String model;
+    private String url;
 
     private List<Choice> choices;
 
     @Builder
-    public ChatResponse(String id, String object,
+    public ChatResponse(String id, String object,String url,
                         LocalDate created, String model,
                         List<Choice> choices) {
         this.id = id;

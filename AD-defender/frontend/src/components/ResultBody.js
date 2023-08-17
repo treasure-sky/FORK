@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import HeartButton from './HeartButton';
 // import LinkResult from './LinkResult';
 import axios from 'axios';
+import LinkResult from "./LinkResult";
 
 const BodyRes = (props) =>{
     const location = useLocation(); // 현재 라우팅 정보 가져오기
@@ -25,12 +26,23 @@ const BodyRes = (props) =>{
     //     // const res = await axios.post(...) //사용자 좋아요 누르면 -> DB 갱신
     //     setLike(!like)
     // }
+    const [result, setResult] = useState(true); //true면 광고
+    const resultText = chatResponse.choices[0].message.content;
+    const inputUrl = chatResponse.url;
+    useEffect(() => {
+        if(resultText=="아니요") {
+            setResult(false);
+        }
+    }, []);
+
+
+    console.dir(chatResponse);
     return(
         <div className='body'>
             <div className='link-section'>
-                <h2>https:// Chat Response: {JSON.stringify(chatResponse.choices[0].message.content)}</h2>
+                <h2>{inputUrl}</h2>
             </div>
-            {/* <LinkResult/> */}
+            <LinkResult isCommercial={result}/>
             {/* <HeartButton like={like} onClick={toggleLike}/> */}
         </div>
     )
