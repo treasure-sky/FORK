@@ -10,17 +10,14 @@
     @include tablet{
         min-width: 834px;
         height: 100%;
-        //height: 1200px;
     }
     @include laptop{
         min-width: 1280px;
         height: 100%;
-        //height: 1024px;
     }
     @include desktop(){
         min-width: 1900px;
         height: 100%;
-        //height: 1080px;
     }
 
 }

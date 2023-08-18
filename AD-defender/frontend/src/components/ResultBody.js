@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import '../styles/ResultBody.scss';
-import { useLocation } from 'react-router-dom';
-import HeartButton from './HeartButton';
-// import LinkResult from './LinkResult';
-import axios from 'axios';
+import { useLocation, Link } from 'react-router-dom';
 import LinkResult from "./LinkResult";
 
 const BodyRes = (props) =>{
@@ -27,6 +24,9 @@ const BodyRes = (props) =>{
             <div className='result'>
                 <LinkResult isCommercial={result}/>
             </div>
+            <Link to="/"><button className='w-btn w-btn-gra1 w-btn-gra-anim'>
+                <h3>홈 화면으로 돌아가기</h3>
+            </button> </Link>
 
             {/* <HeartButton like={like} onClick={toggleLike}/> */}
         </div>
