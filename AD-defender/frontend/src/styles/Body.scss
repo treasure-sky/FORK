@@ -7,7 +7,7 @@
     .app-title{
         h1{
             font-family: 'Montserrat', sans-serif;
-            margin: -20px 0 0 20px;
+            margin: -20px 0 0 -10px;
             color: white;
             font-size: 45px;
             font-weight: 700;
@@ -15,7 +15,7 @@
     }
     .app-introd{
         height: 15%;
-        margin: 20px 0 0 20px;
+        margin: 20px 0 0 -10px;
         h3{
             color: rgb(255, 255, 255);
             font-size: 13px;
@@ -24,16 +24,16 @@
     }
     .content{
         height: 25rem;
-        margin: -20px 0 0 35px;
+        margin: -20px 0 0 10px;
         //margin-left: 40px;
         //@include tablet{margin-left: 50px;}
-        //@include laptop{margin-left: 0px;}
+        @include desktop{margin-left: 30px;}
     }
 
     @include tablet{
         .app-title h1{
             font-family: 'Montserrat', sans-serif;
-            margin: -20px 0 0 20px;
+            margin: -20px 0 0 -10px;
             color: white;
             font-size: 75px;
             font-weight: 700; 
@@ -42,7 +42,7 @@
         }
         .app-introd{
             height: 15%;
-            margin: 20px 0 0 20px;
+            margin: 20px 0 0 -10px;
             h3{
                 color: rgb(255, 255, 255);
                 font-size: 15px;
@@ -54,7 +54,7 @@
         margin-left: 30px;
         .app-title h1{
             font-family: 'Montserrat', sans-serif;
-            margin: -20px 0 0 20px;
+            margin: 20px 0 0 -10px;
             color: white;
             font-size: 90px;
             font-weight: 700; 
@@ -63,7 +63,7 @@
         }
         .app-introd{
             height: 15%;
-            margin: 20px 0 0 20px;
+            margin: 20px 0 0 -10px;
             h3{
                 color: rgb(255, 255, 255);
                 font-size: 16px;

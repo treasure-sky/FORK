@@ -15,7 +15,7 @@
         min-width: 1280px;
         height: 100%;
     }
-    @include desktop(){
+    @include desktop{
         min-width: 1900px;
         height: 100%;
     }
