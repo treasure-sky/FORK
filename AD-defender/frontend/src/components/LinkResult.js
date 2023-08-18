@@ -3,13 +3,13 @@ import '../styles/ResultBody.scss';
 
 const resultCom = () => {
     return (
-        <h1 style={{color:"white"}}>This post is <a>Commercial</a></h1>
+        <h1>이 게시물은 <a>광고입니다.</a></h1>
     )
 }
 
 const resultNotCom = () => {
     return (
-        <h1 style={{color:"white"}}>This post is <a>Not Commercial</a></h1>
+        <h1>이 게시물은 <a>광고가 아닙니다.</a></h1>
     )
 }
 

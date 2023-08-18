@@ -5,17 +5,24 @@ import {BiSearchAlt} from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 
 const LinkInsert = () => {
+
+    //검색결과 바로 아래에 보여줌
+    //
+    // const[result, setResult] = useState('');
+    // const AddResult = () => {
+    //     let count = 1;
+    //     setResult(count);
+    // }
+
     const [link, setLink] = useState('');
     const navigate = useNavigate();
     const onChange = e => setLink(e.target.value);
-
     const onKeyDown = e => {
         if (e.key === 'Enter') {
             e.preventDefault();
             handleSubmit(e);
         }
     };
-
     const handleSubmit = async(e) => {
         e.preventDefault();
         try {
@@ -40,7 +47,9 @@ const LinkInsert = () => {
                     onChange={onChange}
                     onKeyDown={onKeyDown}
                 />
-                <button type='submit'>
+                <button
+                    type='submit'
+                    onClick={handleSubmit}>
                     <BiSearchAlt/>
                 </button>
             </form>

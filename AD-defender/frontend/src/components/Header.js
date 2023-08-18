@@ -11,8 +11,8 @@ function Header(props){
         <Link to="/"><img className='logo-img' alt='logo-img' src='image/app-logo-img-color.png'/></Link>
                 <nav>
                     <ul>
-                    <Link to="/bi"><li><a>About Fork</a></li></Link>
-                    <Link to="/aboutus"><li><a>About us</a></li></Link>
+                    <Link to="/bi"><li><a>사이트 소개</a></li></Link>
+                    <Link to="/aboutus"><li><a>팀원 소개</a></li></Link>
                     </ul>
                 </nav>
                 

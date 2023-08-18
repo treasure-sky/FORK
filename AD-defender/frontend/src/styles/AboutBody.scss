@@ -1,0 +1,74 @@
+@import '../styles/mixin';
+@font-face {
+  font-family: 'CWDangamAsac-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/CWDangamAsac-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+.wrapper{
+  color: white;
+  font-family: Pretendard;
+  text-align: center;
+  .about-section{
+    margin: 0 auto;
+    .about-title{
+      margin: -50px 0 0 -20px;
+      text-align: center;
+      height:10%;
+      h1{
+        font-family: 'CWDangamAsac-Bold';
+        font-size: 100px;
+      }
+    }
+    .about-in{
+      text-align: center;
+      margin: -60px 0 60px -20px;
+      hr{margin: auto;
+      width: 70%}
+      h3{
+        font-weight: 600;
+        font-size: 20px;
+      }
+    }
+    .container{
+      width: 100%;
+      margin: auto;
+    }
+    .about-row{
+      width: 80%;
+      margin: 100px 30px 0 30px;
+      //margin-left: 10px;
+      @include tablet{
+        margin: 130px;
+      }
+      display: flex;
+      flex-wrap: wrap;
+
+    }
+    ul{list-style: none}
+    .about-col{
+      //background-color: #ffbc7d;
+      width: 50%;
+      @include tablet{
+        width: 25%;
+      }
+      .profile-img{
+        margin: auto;
+        border-radius: 20%;
+        overflow: hidden;
+        width: 150px;
+        img{
+          width: 100%;
+          margin-left: 10px;
+        }
+      }
+      h4{
+        font-size: 20px;
+        margin-left: 35px;
+      }
+    }
+
+  }
+
+
+}
