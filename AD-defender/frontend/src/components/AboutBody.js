@@ -1,6 +1,4 @@
 import '../styles/AboutBody.scss';
-import {gsap} from "gsap";
-import {FaInstagram} from "react-icons/fa";
 import {React} from "react";
 const AboutBody = (props) => {
     return(
